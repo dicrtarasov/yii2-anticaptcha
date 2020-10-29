@@ -3,13 +3,14 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 03:07:39
+ * @version 30.10.20 00:09:29
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha;
 
 use dicr\http\HttpCompressionBehavior;
+use Yii;
 use yii\base\InvalidConfigException;
 use yii\httpclient\Client;
 
@@ -38,7 +39,7 @@ class Module extends \yii\base\Module
      */
     public $softId;
 
-    /** @var ?callback */
+    /** @var ?callback function(GetTaskResponse $response) обработка callback-решений задач */
     public $handler;
 
     /**
@@ -48,6 +49,8 @@ class Module extends \yii\base\Module
     public function init() : void
     {
         parent::init();
+
+        $this->controllerNamespace = __NAMESPACE__;
 
         if (empty($this->url)) {
             throw new InvalidConfigException('url');
@@ -81,5 +84,18 @@ class Module extends \yii\base\Module
         $this->_httpClient->baseUrl = $this->url;
 
         return $this->_httpClient;
+    }
+
+    /**
+     * Создает запрос.
+     *
+     * @param array $config конфиг объекта, конкретный класс указывается в class
+     * @return Request
+     * @throws InvalidConfigException
+     */
+    public function request(array $config) : Request
+    {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return Yii::createObject($config, [$this]);
     }
 }

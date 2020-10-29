@@ -1,21 +1,15 @@
-# Клиент Simple API решения каптч для Yii2.
+# Клиент Anticaptcha API 2 для Yii2
 
-##### API: https://rucaptcha.com/api-rucaptcha
-
-Простой протокол Rest-запросов поддерживается такими сервисами как:
-- rucaptcha.com
-- 2captcha.com
-- pixodrom.com
-- captcha24.com
-- socialink.ru
+- Site: https://anti-captcha.com/mainpage
+- API: https://anticaptcha.atlassian.net/wiki/spaces/API/pages/196633
 
 ## Настройка
 
 ```php
 'modules' => [
     'anticaptcha' => [
-        'class' => dicr\anticaptcha\simple\AntiCaptchaSimpleModule::class,
-        'key' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+        'class' => dicr\anticaptcha\Module::class,
+        'clientKey' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     ]
 ]
 ```
@@ -24,39 +18,31 @@
 
 Запрос на решение простой текстовой капчи:
 ```php
-// находим модуль
+/** @var \dicr\anticaptcha\Module $module модуль */
 $module = Yii::$app->getModule('anticaptcha');
 
-// создаем запрос
-$req = $module->captchaRequest([
-    'textCaptcha' => 'Привет'
+/** @var CreateTaskRequest $req запрос создания задачи */
+$req = self::module()->request([
+    'class' => CreateTaskRequest::class,
+    'task' => new ImageToTextTask([
+        'body' => base64_encode(file_get_contents(__DIR__ . '/captcha.gif')),
+    ])
 ]);
 
-// отправляем
+// отправляем запрос создания задачи решения капчи
 $res = $req->send();
+echo 'Задача: ' . $res->taskId . "\n";
 
-// проверяем статус заявки
-if (! $res->status) {
-    throw new Exception('Ошибка: ' . $res->method);
-}
+// ждем 20 секунд
+sleep(20);
 
-// получаем id заявки
-$id = (int)$res->method;
-```
-
-Получение решения:
-```php
-// запрос решения
-$req = $module->resultRequest([
-    'action' => ResultRequest::ACTION_GET,
-    'id' => $id 
+/** @var CreateTaskRequest $req запрос решения капчи */
+$req = self::module()->request([
+    'class' => GetTaskRequest::class,
+    'taskId' => $res->taskId
 ]);
 
-// отправляем
-$res = $res->send();
-
-// проверяем статус заявки
-if ($res->status) {
-    echo 'Результат: ' . $res->method;
-}
+// отправляем запрос
+$res = $req->send();
+echo 'Ответ: ' . $res->solution['text'] . "\n";
 ```

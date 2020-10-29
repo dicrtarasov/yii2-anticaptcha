@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 03:24:53
+ * @version 29.10.20 19:10:30
  */
 
 declare(strict_types = 1);
@@ -85,6 +85,9 @@ abstract class Request extends JsonEntity
         }
 
         $res->format = Client::FORMAT_JSON;
+        if (! empty($res->data['errorId'])) {
+            throw new Exception('Ошибка: ' . $res->data['errorDescription'] ?? $res->data['errorCode']);
+        }
 
         return $res->data;
     }
