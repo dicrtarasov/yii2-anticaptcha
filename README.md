@@ -1,4 +1,4 @@
-# Клиент Anticaptcha API 2 для Yii2
+# Клиент Anti-captcha API 2 для Yii2
 
 - Site: https://anti-captcha.com/mainpage
 - API: https://anticaptcha.atlassian.net/wiki/spaces/API/pages/196633

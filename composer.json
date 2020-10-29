@@ -3,7 +3,7 @@
     "type": "yii2-extension",
     "license": "MIT",
     "homepage": "https://gitlab.com/dicr/yii2-anticaptcha",
-    "description": "API anticaptcha2 (antigate) для Yii2",
+    "description": "Клиент Anti-captcha API 2 для Yii2",
     "keywords": ["dicr", "yii2", "anticaptcha"],
     "authors": [
         {
