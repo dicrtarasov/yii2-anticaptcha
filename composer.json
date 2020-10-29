@@ -1,0 +1,48 @@
+{
+    "name": "dicr/yii2-anticaptcha",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "homepage": "https://gitlab.com/dicr/yii2-anticaptcha",
+    "description": "API anticaptcha2 (antigate) для Yii2",
+    "keywords": ["dicr", "yii2", "anticaptcha"],
+    "authors": [
+        {
+            "name": "Igor Tarasov",
+            "email": "develop@dicr.org",
+            "homepage": "http://dicr.org",
+            "role": "developer"
+        }
+    ],
+    "support": {
+        "source": "https://gitlab.com/dicr/yii2-anticaptcha.git"
+    },
+    "minimum-stability": "RC",
+    "prefer-stable": true,
+    "require": {
+        "php": "~7.3",
+        "yiisoft/yii2": "~2.0",
+        "dicr/yii2-json": "~1.0",
+        "dicr/yii2-http": "~2.1",
+        "dicr/yii2-validate": "~2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "dicr\\anticaptcha\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "dicr\\tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {"type": "gitlab", "url": "https://gitlab.com/dicr/yii2-json.git"},
+        {"type": "gitlab", "url": "https://gitlab.com/dicr/yii2-http.git"},
+        {"type": "gitlab", "url": "https://gitlab.com/dicr/yii2-validate.git"},
+        {"type": "composer", "url": "https://asset-packagist.org"}
+    ],
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "phpunit/phpunit": "~9.4"
+    }
+}
