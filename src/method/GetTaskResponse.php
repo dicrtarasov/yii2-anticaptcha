@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 04:18:01
+ * @version 30.10.20 00:50:36
  */
 
 declare(strict_types = 1);
@@ -16,12 +16,6 @@ use dicr\anticaptcha\Response;
  */
 class GetTaskResponse extends Response
 {
-    /** @var string задача в процессе выполнения */
-    public const STATUS_PROCESSING = 'processing';
-
-    /** @var string задача выполнена, решение находится в свойстве solution */
-    public const STATUS_READY = 'ready';
-
     /** @var ?string состояние задачи (STATUS_*) */
     public $status;
 
