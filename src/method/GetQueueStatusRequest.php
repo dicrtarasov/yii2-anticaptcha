@@ -3,20 +3,20 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 16:19:08
+ * @version 30.10.20 07:30:47
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\method;
 
-use dicr\anticaptcha\Request;
+use dicr\anticaptcha\AntiCaptchaRequest;
 
 /**
  * GetQueueStatusRequest - получить информацию о загрузке очереди
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/8290314/getQueueStats
  */
-class GetQueueStatusRequest extends Request
+class GetQueueStatusRequest extends AntiCaptchaRequest
 {
     /** @var int стандартная ImageToText, язык английский */
     public const QUEUE_IMAGETOTEXT_EN = 1;

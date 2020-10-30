@@ -3,13 +3,13 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 18:56:40
+ * @version 30.10.20 07:30:32
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\method;
 
-use dicr\anticaptcha\Request;
+use dicr\anticaptcha\AntiCaptchaRequest;
 use yii\base\InvalidConfigException;
 
 /**
@@ -17,7 +17,7 @@ use yii\base\InvalidConfigException;
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/578355267/getAppStats
  */
-class GetAppStatsRequest extends Request
+class GetAppStatsRequest extends AntiCaptchaRequest
 {
     /** @var string Ошибки */
     public const MODE_ERRORS = 'errors';

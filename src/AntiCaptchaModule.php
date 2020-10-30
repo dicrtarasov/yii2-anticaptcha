@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 00:09:29
+ * @version 30.10.20 07:29:51
  */
 
 declare(strict_types = 1);
@@ -12,6 +12,7 @@ namespace dicr\anticaptcha;
 use dicr\http\HttpCompressionBehavior;
 use Yii;
 use yii\base\InvalidConfigException;
+use yii\base\Module;
 use yii\httpclient\Client;
 
 use function is_callable;
@@ -22,7 +23,7 @@ use function is_callable;
  * @property-read Client $httpClient
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/196633
  */
-class Module extends \yii\base\Module
+class AntiCaptchaModule extends Module
 {
     /** @var string API URL */
     public const URL = 'https://api.anti-captcha.com';
@@ -90,10 +91,10 @@ class Module extends \yii\base\Module
      * Создает запрос.
      *
      * @param array $config конфиг объекта, конкретный класс указывается в class
-     * @return Request
+     * @return AntiCaptchaRequest
      * @throws InvalidConfigException
      */
-    public function request(array $config) : Request
+    public function request(array $config) : AntiCaptchaRequest
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return Yii::createObject($config, [$this]);

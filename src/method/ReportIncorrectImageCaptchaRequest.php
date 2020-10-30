@@ -3,20 +3,20 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 16:26:07
+ * @version 30.10.20 07:31:09
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\method;
 
-use dicr\anticaptcha\Request;
+use dicr\anticaptcha\AntiCaptchaRequest;
 
 /**
  * ReportIncorrectImageCaptchaRequest - пожаловаться на капчу
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/48693249/reportIncorrectImageCaptcha
  */
-class ReportIncorrectImageCaptchaRequest extends Request
+class ReportIncorrectImageCaptchaRequest extends AntiCaptchaRequest
 {
     /** @var int */
     public $taskId;

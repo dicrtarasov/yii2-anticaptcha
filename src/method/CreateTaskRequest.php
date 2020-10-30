@@ -3,14 +3,14 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 03:28:48
+ * @version 30.10.20 07:34:36
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\method;
 
-use dicr\anticaptcha\Request;
-use dicr\anticaptcha\Task;
+use dicr\anticaptcha\AntiCaptchaRequest;
+use dicr\anticaptcha\AntiCaptchaTask;
 use dicr\helper\Url;
 
 use function array_merge;
@@ -20,7 +20,7 @@ use function array_merge;
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/4227074/createTask
  */
-class CreateTaskRequest extends Request
+class CreateTaskRequest extends AntiCaptchaRequest
 {
     /** @var string англоязычная очередь */
     public const LANGUAGE_EN = 'en';
@@ -28,7 +28,7 @@ class CreateTaskRequest extends Request
     /** @var string группа стран Россия, Украина, Беларусь, Казахстан */
     public const LANGUAGE_RN = 'rn';
 
-    /** @var Task задача */
+    /** @var AntiCaptchaTask задача */
     public $task;
 
     /**
@@ -44,7 +44,7 @@ class CreateTaskRequest extends Request
         return array_merge(parent::rules(), [
             ['task', 'required'],
             ['task', function (string $attribute) {
-                if (! $this->task instanceof Task) {
+                if (! $this->task instanceof AntiCaptchaTask) {
                     $this->addError($attribute, 'Должен быть типом Task');
                 }
             }],
@@ -61,7 +61,7 @@ class CreateTaskRequest extends Request
     public static function attributeEntities() : array
     {
         return [
-            'task' => Task::class
+            'task' => AntiCaptchaTask::class
         ];
     }
 

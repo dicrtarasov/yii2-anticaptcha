@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 02:46:17
+ * @version 30.10.20 07:28:54
  */
 
 declare(strict_types = 1);
@@ -25,7 +25,7 @@ use const PREG_SPLIT_NO_EMPTY;
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/196650
  */
-abstract class Task extends JsonEntity
+abstract class AntiCaptchaTask extends JsonEntity
 {
     /** @var int можно вводить только цифры */
     public const NUMERIC_YES = 1;

@@ -8,7 +8,7 @@
 ```php
 'modules' => [
     'anticaptcha' => [
-        'class' => dicr\anticaptcha\Module::class,
+        'class' => dicr\anticaptcha\AntiCaptchaModule::class,
         'clientKey' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     ]
 ]
@@ -18,7 +18,7 @@
 
 Запрос на решение простой текстовой капчи:
 ```php
-/** @var \dicr\anticaptcha\Module $module модуль */
+/** @var \dicr\anticaptcha\AntiCaptchaModule $module модуль */
 $module = Yii::$app->getModule('anticaptcha');
 
 /** @var CreateTaskRequest $req запрос создания задачи */

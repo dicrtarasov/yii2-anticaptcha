@@ -3,20 +3,20 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 02:19:13
+ * @version 30.10.20 07:34:11
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\task;
 
-use dicr\anticaptcha\Task;
+use dicr\anticaptcha\AntiCaptchaTask;
 
 /**
  * SquareNetTextTask - выбрать нужный объект на картинке с сеткой изображений
  *
  * @package https://anticaptcha.atlassian.net/wiki/spaces/API/pages/410714125/SquareNetTextTask
  */
-class SquareNetTextTask extends Task
+class SquareNetTextTask extends AntiCaptchaTask
 {
     /** @var string Тело файла в base64 и без переносов строки. */
     public $body;

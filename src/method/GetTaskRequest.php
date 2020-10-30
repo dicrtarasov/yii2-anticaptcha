@@ -3,20 +3,20 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 03:44:30
+ * @version 30.10.20 07:31:00
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\method;
 
-use dicr\anticaptcha\Request;
+use dicr\anticaptcha\AntiCaptchaRequest;
 
 /**
  * Получить результат задачи.
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/196670/getTaskResult
  */
-class GetTaskRequest extends Request
+class GetTaskRequest extends AntiCaptchaRequest
 {
     /** @var int Идентификатор задания полученный в методе createTask */
     public $taskId;

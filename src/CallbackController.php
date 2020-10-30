@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 18:53:32
+ * @version 30.10.20 07:36:03
  */
 
 declare(strict_types = 1);
@@ -13,14 +13,15 @@ use dicr\anticaptcha\method\GetTaskResponse;
 use Yii;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+use yii\web\Request;
 
 use function call_user_func;
 
 /**
  * Контроллер callback.
  *
- * @property-read Module $module
- * @property-read \yii\web\Request $request
+ * @property-read AntiCaptchaModule $module
+ * @property-read Request $request
  */
 class CallbackController extends Controller
 {

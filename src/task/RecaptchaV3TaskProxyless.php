@@ -3,20 +3,20 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 02:15:52
+ * @version 30.10.20 07:34:04
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\task;
 
-use dicr\anticaptcha\Task;
+use dicr\anticaptcha\AntiCaptchaTask;
 
 /**
  * RecaptchaV3TaskProxyless - решение капчи Google версии 3
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/623935506/RecaptchaV3TaskProxyless+Google+3
  */
-class RecaptchaV3TaskProxyless extends Task
+class RecaptchaV3TaskProxyless extends AntiCaptchaTask
 {
     /**
      * @var string Адрес страницы на которой решается капча

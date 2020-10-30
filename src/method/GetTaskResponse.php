@@ -3,18 +3,18 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 00:50:36
+ * @version 30.10.20 07:32:11
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\method;
 
-use dicr\anticaptcha\Response;
+use dicr\anticaptcha\AntiCaptchaResponse;
 
 /**
  * Class GetTaskResponse
  */
-class GetTaskResponse extends Response
+class GetTaskResponse extends AntiCaptchaResponse
 {
     /** @var ?string состояние задачи (STATUS_*) */
     public $status;

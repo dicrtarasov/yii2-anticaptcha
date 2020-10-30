@@ -3,15 +3,15 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 19:19:02
+ * @version 30.10.20 07:36:03
  */
 
 declare(strict_types = 1);
 namespace dicr\tests;
 
+use dicr\anticaptcha\AntiCaptchaModule;
 use dicr\anticaptcha\method\CreateTaskRequest;
 use dicr\anticaptcha\method\GetBalanceRequest;
-use dicr\anticaptcha\Module;
 use dicr\anticaptcha\task\ImageToTextTask;
 use PHPUnit\Framework\TestCase;
 use Yii;
@@ -29,9 +29,9 @@ class MethodTest extends TestCase
     /**
      * Модуль.
      *
-     * @return Module
+     * @return AntiCaptchaModule
      */
-    private static function module() : Module
+    private static function module() : AntiCaptchaModule
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return Yii::$app->getModule('anticaptcha');

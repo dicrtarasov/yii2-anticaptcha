@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 19:10:30
+ * @version 30.10.20 07:29:10
  */
 
 declare(strict_types = 1);
@@ -20,18 +20,18 @@ use yii\httpclient\Client;
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/578453521/API
  */
-abstract class Request extends JsonEntity
+abstract class AntiCaptchaRequest extends JsonEntity
 {
-    /** @var Module $module */
+    /** @var AntiCaptchaModule $module */
     protected $module;
 
     /**
      * Request constructor.
      *
-     * @param Module $module
+     * @param AntiCaptchaModule $module
      * @param array $config
      */
-    public function __construct(Module $module, array $config = [])
+    public function __construct(AntiCaptchaModule $module, array $config = [])
     {
         $this->module = $module;
 

@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 00:50:36
+ * @version 30.10.20 07:29:02
  */
 
 declare(strict_types = 1);
@@ -14,7 +14,7 @@ use dicr\json\JsonEntity;
 /**
  * Ответ на запрос.
  */
-abstract class Response extends JsonEntity
+abstract class AntiCaptchaResponse extends JsonEntity
 {
     /** @var string */
     public const STATUS_SUCCESS = 'success';

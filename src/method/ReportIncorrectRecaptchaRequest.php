@@ -3,20 +3,20 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 16:34:33
+ * @version 30.10.20 07:31:16
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\method;
 
-use dicr\anticaptcha\Request;
+use dicr\anticaptcha\AntiCaptchaRequest;
 
 /**
  * ReportIncorrectRecaptchaRequest - пожаловаться на рекапчу
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/632193103/reportIncorrectRecaptcha
  */
-class ReportIncorrectRecaptchaRequest extends Request
+class ReportIncorrectRecaptchaRequest extends AntiCaptchaRequest
 {
     /** @var int Идентификатор задания полученный в методе createTask */
     public $taskId;

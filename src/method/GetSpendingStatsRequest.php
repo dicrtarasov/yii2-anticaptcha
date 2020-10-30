@@ -3,20 +3,20 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 18:57:56
+ * @version 30.10.20 07:30:53
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\method;
 
-use dicr\anticaptcha\Request;
+use dicr\anticaptcha\AntiCaptchaRequest;
 
 /**
  * GetSpendingStatsRequest - получить статистику трат аккаунта
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/576552992/getSpendingStats
  */
-class GetSpendingStatsRequest extends Request
+class GetSpendingStatsRequest extends AntiCaptchaRequest
 {
     /** @var ?int Unix timestamp начала периода 24-х часового отчета */
     public $date;

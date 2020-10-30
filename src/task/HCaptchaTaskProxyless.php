@@ -3,13 +3,13 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 02:34:34
+ * @version 30.10.20 07:33:36
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\task;
 
-use dicr\anticaptcha\Task;
+use dicr\anticaptcha\AntiCaptchaTask;
 
 use function array_merge;
 
@@ -22,7 +22,7 @@ use function array_merge;
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/834535458/HCaptchaTaskProxyless+hCaptcha
  */
-class HCaptchaTaskProxyless extends Task
+class HCaptchaTaskProxyless extends AntiCaptchaTask
 {
     /** @var string Адрес страницы на которой решается капча */
     public $websiteURL;

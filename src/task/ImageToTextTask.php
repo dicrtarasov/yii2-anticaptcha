@@ -3,20 +3,20 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 02:12:40
+ * @version 30.10.20 07:33:44
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\task;
 
-use dicr\anticaptcha\Task;
+use dicr\anticaptcha\AntiCaptchaTask;
 
 /**
  * ImageToTextTask - решение обычной капчи с текстом.
  *
  * @link https://anticaptcha.atlassian.net/wiki/spaces/API/pages/4227078/ImageToTextTask
  */
-class ImageToTextTask extends Task
+class ImageToTextTask extends AntiCaptchaTask
 {
     /**
      * @var string Содержимое файла капчи закодированное в base64.

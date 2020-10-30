@@ -3,18 +3,18 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 29.10.20 18:28:46
+ * @version 30.10.20 07:31:46
  */
 
 declare(strict_types = 1);
 namespace dicr\anticaptcha\method;
 
-use dicr\anticaptcha\Response;
+use dicr\anticaptcha\AntiCaptchaResponse;
 
 /**
  * GetAppStatsResponse
  */
-class GetAppStatsResponse extends Response
+class GetAppStatsResponse extends AntiCaptchaResponse
 {
     /**
      * @var array Массив из структур, в которых содержатся названия данных, значения, даты и т.д.
