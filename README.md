@@ -11,7 +11,7 @@
         'class' => dicr\anticaptcha\AntiCaptchaModule::class,
         'clientKey' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     ]
-]
+];
 ```
 
 ## Использование
