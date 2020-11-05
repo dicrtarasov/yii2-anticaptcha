@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 07:28:54
+ * @version 05.11.20 05:29:58
  */
 
 declare(strict_types = 1);
@@ -48,7 +48,7 @@ abstract class AntiCaptchaTask extends JsonEntity
     /**
      * @inheritDoc
      */
-    public static function attributeFields() : array
+    public function attributeFields() : array
     {
         // отключаем трансляцию полей
         return [];
@@ -57,7 +57,7 @@ abstract class AntiCaptchaTask extends JsonEntity
     /**
      * @inheritDoc
      */
-    public static function attributesToJson() : array
+    public function attributesToJson() : array
     {
         return array_merge(parent::attributesToJson(), [
             'cookies' => function (?array $value) : ?string {
@@ -75,7 +75,7 @@ abstract class AntiCaptchaTask extends JsonEntity
     /**
      * @inheritDoc
      */
-    public static function attributesFromJson() : array
+    public function attributesFromJson() : array
     {
         return array_merge(parent::attributesFromJson(), [
             'cookies' => function (?string $data) : ?array {

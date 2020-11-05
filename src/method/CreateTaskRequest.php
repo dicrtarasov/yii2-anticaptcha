@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 07:34:36
+ * @version 05.11.20 05:31:40
  */
 
 declare(strict_types = 1);
@@ -12,6 +12,7 @@ namespace dicr\anticaptcha\method;
 use dicr\anticaptcha\AntiCaptchaRequest;
 use dicr\anticaptcha\AntiCaptchaTask;
 use dicr\helper\Url;
+use dicr\json\EntityValidator;
 
 use function array_merge;
 
@@ -43,11 +44,7 @@ class CreateTaskRequest extends AntiCaptchaRequest
     {
         return array_merge(parent::rules(), [
             ['task', 'required'],
-            ['task', function (string $attribute) {
-                if (! $this->task instanceof AntiCaptchaTask) {
-                    $this->addError($attribute, 'Должен быть типом Task');
-                }
-            }],
+            ['task', EntityValidator::class],
 
             ['languagePool', 'trim'],
             ['languagePool', 'default'],
@@ -58,7 +55,7 @@ class CreateTaskRequest extends AntiCaptchaRequest
     /**
      * @inheritDoc
      */
-    public static function attributeEntities() : array
+    public function attributeEntities() : array
     {
         return [
             'task' => AntiCaptchaTask::class
@@ -81,7 +78,7 @@ class CreateTaskRequest extends AntiCaptchaRequest
         return array_merge(parent::getJson(), [
             'softId' => $this->module->softId,
             'callbackUrl' => $this->module->handler ?
-                Url::to($this->module->uniqueId . '/callback', true) : null
+                Url::to('/' . $this->module->uniqueId . '/callback', true) : null
         ]);
     }
 

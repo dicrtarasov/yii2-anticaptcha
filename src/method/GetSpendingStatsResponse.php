@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 07:36:03
+ * @version 05.11.20 05:29:58
  */
 
 declare(strict_types = 1);
@@ -25,7 +25,7 @@ class GetSpendingStatsResponse extends AntiCaptchaResponse
     /**
      * @inheritDoc
      */
-    public static function attributeEntities() : array
+    public function attributeEntities() : array
     {
         return [
             'data' => [SpendingStatItem::class]

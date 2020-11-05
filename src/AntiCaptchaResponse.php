@@ -3,7 +3,7 @@
  * @copyright 2019-2020 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 07:29:02
+ * @version 05.11.20 05:29:58
  */
 
 declare(strict_types = 1);
@@ -44,7 +44,7 @@ abstract class AntiCaptchaResponse extends JsonEntity
     /**
      * @inheritDoc
      */
-    public static function attributeFields() : array
+    public function attributeFields() : array
     {
         return [];
     }
