@@ -17,6 +17,7 @@
 ## Использование
 
 Запрос на решение простой текстовой капчи:
+
 ```php
 /** @var \dicr\anticaptcha\AntiCaptchaModule $module модуль */
 $module = Yii::$app->getModule('anticaptcha');
