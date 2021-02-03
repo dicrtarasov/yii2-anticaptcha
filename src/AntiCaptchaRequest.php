@@ -1,9 +1,9 @@
 <?php
 /*
- * @copyright 2019-2020 Dicr http://dicr.org
+ * @copyright 2019-2021 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 05.11.20 05:26:41
+ * @version 03.02.21 20:32:51
  */
 
 declare(strict_types = 1);
@@ -69,9 +69,7 @@ abstract class AntiCaptchaRequest extends JsonEntity
 
         $data = array_filter(array_merge($this->json, [
             'clientKey' => $this->module->clientKey
-        ]), static function ($val) : bool {
-            return $val !== null && $val !== '' && $val !== [];
-        });
+        ]), static fn($val): bool => $val !== null && $val !== '' && $val !== []);
 
         $req = $this->module->httpClient->post(static::method(), $data);
         $req->format = Client::FORMAT_JSON;

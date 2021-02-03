@@ -2,8 +2,8 @@
     "name": "dicr/yii2-anticaptcha",
     "type": "yii2-extension",
     "license": "MIT",
-    "homepage": "https://gitlab.com/dicr/yii2-anticaptcha",
     "description": "Клиент Anti-captcha API 2 для Yii2",
+    "homepage": "https://gitlab.com/dicr/yii2-anticaptcha",
     "keywords": ["dicr", "yii2", "anticaptcha"],
     "authors": [
         {
@@ -19,7 +19,7 @@
     "minimum-stability": "RC",
     "prefer-stable": true,
     "require": {
-        "php": "~7.3",
+        "php": "~7.4 || ~8.0.1",
         "yiisoft/yii2": "~2.0",
         "dicr/yii2-json": "~2.0",
         "dicr/yii2-http": "~2.1",
@@ -43,6 +43,6 @@
     ],
     "require-dev": {
         "roave/security-advisories": "dev-master",
-        "phpunit/phpunit": "~9.4"
+        "phpunit/phpunit": "~9.5"
     }
 }

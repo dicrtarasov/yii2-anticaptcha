@@ -6,10 +6,12 @@
 ## Настройка
 
 ```php
-'modules' => [
-    'anticaptcha' => [
-        'class' => dicr\anticaptcha\AntiCaptchaModule::class,
-        'clientKey' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+$config = [
+    'modules' => [
+        'anticaptcha' => [
+            'class' => dicr\anticaptcha\AntiCaptchaModule::class,
+            'clientKey' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+        ]
     ]
 ];
 ```
@@ -19,11 +21,16 @@
 Запрос на решение простой текстовой капчи:
 
 ```php
-/** @var \dicr\anticaptcha\AntiCaptchaModule $module модуль */
+use dicr\anticaptcha\AntiCaptchaModule;
+use dicr\anticaptcha\method\CreateTaskRequest;
+use dicr\anticaptcha\method\GetTaskRequest;
+use dicr\anticaptcha\task\ImageToTextTask;
+
+/** @var AntiCaptchaModule $module модуль */
 $module = Yii::$app->getModule('anticaptcha');
 
 /** @var CreateTaskRequest $req запрос создания задачи */
-$req = self::module()->request([
+$req = $module->request([
     'class' => CreateTaskRequest::class,
     'task' => new ImageToTextTask([
         'body' => base64_encode(file_get_contents(__DIR__ . '/captcha.gif')),
@@ -38,7 +45,7 @@ echo 'Задача: ' . $res->taskId . "\n";
 sleep(20);
 
 /** @var CreateTaskRequest $req запрос решения капчи */
-$req = self::module()->request([
+$req =$module->request([
     'class' => GetTaskRequest::class,
     'taskId' => $res->taskId
 ]);

@@ -1,9 +1,9 @@
 <?php
 /*
- * @copyright 2019-2020 Dicr http://dicr.org
+ * @copyright 2019-2021 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 07:33:50
+ * @version 03.02.21 20:25:17
  */
 
 declare(strict_types = 1);
@@ -36,7 +36,6 @@ class NoCaptchaTask extends AntiCaptchaTask
 
     /**
      * @var ?string Секретный токен для предыдущей версии рекапчи.
-     * @noinspection SpellCheckingInspection
      *
      * В большинстве случаев сайты используют новую версию и этот токен не требуется.
      * Секретный токен генерируется на сервере Google и вставляется на страницу в атрибуте data-stoken.

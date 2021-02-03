@@ -1,9 +1,9 @@
 <?php
 /*
- * @copyright 2019-2020 Dicr http://dicr.org
+ * @copyright 2019-2021 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 07:31:22
+ * @version 03.02.21 20:32:51
  */
 
 declare(strict_types = 1);
@@ -39,9 +39,7 @@ class SendFundsRequest extends AntiCaptchaRequest
             [['accountLogin', 'accountEmail'], 'default'],
 
             ['accountEmail', 'email'],
-            ['accountEmail', 'required', 'when' => function () : bool {
-                return empty($this->accountLogin);
-            }]
+            ['accountEmail', 'required', 'when' => fn(): bool => empty($this->accountLogin)]
         ]);
     }
 

@@ -1,9 +1,9 @@
 <?php
 /*
- * @copyright 2019-2020 Dicr http://dicr.org
+ * @copyright 2019-2021 Dicr http://dicr.org
  * @author Igor A Tarasov <develop@dicr.org>
  * @license MIT
- * @version 30.10.20 07:36:03
+ * @version 03.02.21 20:29:10
  */
 
 declare(strict_types = 1);
@@ -16,7 +16,6 @@ use dicr\anticaptcha\task\ImageToTextTask;
 use PHPUnit\Framework\TestCase;
 use Yii;
 use yii\base\Exception;
-use yii\base\InvalidConfigException;
 
 use function base64_encode;
 use function file_get_contents;
@@ -31,7 +30,7 @@ class MethodTest extends TestCase
      *
      * @return AntiCaptchaModule
      */
-    private static function module() : AntiCaptchaModule
+    private static function module(): AntiCaptchaModule
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return Yii::$app->getModule('anticaptcha');
@@ -39,8 +38,9 @@ class MethodTest extends TestCase
 
     /**
      * @throws Exception
+     * @noinspection PhpUnitMissingTargetForTestInspection
      */
-    public function testBalanceRequest() : void
+    public function testBalanceRequest(): void
     {
         /** @var GetBalanceRequest $req */
         $req = self::module()->request([
@@ -54,9 +54,9 @@ class MethodTest extends TestCase
 
     /**
      * @throws Exception
-     * @throws InvalidConfigException
+     * @noinspection PhpUnitMissingTargetForTestInspection
      */
-    public function testCreateTask() : void
+    public function testCreateTask(): void
     {
         /** @var CreateTaskRequest $req */
         $req = self::module()->request([
